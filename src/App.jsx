@@ -6,6 +6,7 @@ import ConnectPanel from './components/ConnectPanel';
 import WeightDisplay from './components/WeightDisplay';
 import CaptureLog from './components/CaptureLog';
 import RawDebug from './components/RawDebug';
+import SetupInfoModal from './components/SetupInfoModal';
 import './App.css';
 
 export default function App() {
@@ -36,7 +37,10 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Scale Reader</h1>
+        <div className="app-title-group">
+          <h1>Scale Reader</h1>
+          <SetupInfoModal />
+        </div>
         <ConnectPanel
           connected={scale.connected}
           onConnect={scale.connect}
