@@ -1,0 +1,252 @@
+/* Layout ------------------------------------------------------------------ */
+.app {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header h1 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Connect panel ----------------------------------------------------------- */
+.connect-panel {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex-shrink: 0;
+}
+
+.status-dot--on {
+  background: var(--stable);
+  box-shadow: 0 0 6px var(--stable);
+}
+
+.status-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  min-width: 90px;
+}
+
+/* Weight display ---------------------------------------------------------- */
+.weight-display {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: border-color 0.25s;
+  user-select: none;
+}
+
+.weight-display--stable   { border-color: var(--stable); }
+.weight-display--dynamic  { border-color: var(--dynamic); }
+.weight-display--overload,
+.weight-display--underload { border-color: var(--error); }
+
+.weight-status {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+  height: 1.2em;
+}
+
+.weight-display--stable   .weight-status { color: var(--stable); }
+.weight-display--dynamic  .weight-status { color: var(--dynamic); }
+.weight-display--overload .weight-status,
+.weight-display--underload .weight-status { color: var(--error); }
+
+.weight-value {
+  font-family: 'Courier New', 'Roboto Mono', monospace;
+  font-size: clamp(3.5rem, 12vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.weight-display--stable   .weight-value { color: var(--stable); }
+.weight-display--dynamic  .weight-value { color: var(--dynamic); }
+.weight-display--overload .weight-value,
+.weight-display--underload .weight-value { color: var(--error); }
+
+.weight-unit {
+  font-size: 1.4rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* Controls ---------------------------------------------------------------- */
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* Buttons ----------------------------------------------------------------- */
+.btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s, filter 0.15s;
+  line-height: 1.4;
+}
+
+.btn:hover:not(:disabled) { filter: brightness(1.15); }
+.btn:disabled { opacity: 0.38; cursor: not-allowed; }
+
+.btn-primary   { background: var(--accent); color: #fff; }
+.btn-secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
+.btn-accent    { background: var(--accent); color: #fff; }
+.btn-danger    { background: #450a0a; color: #fca5a5; border-color: #7f1d1d; }
+.btn-ghost     { background: transparent; color: var(--muted); }
+.btn-sm        { padding: 0.25rem 0.65rem; font-size: 0.8rem; }
+
+/* Error banner ------------------------------------------------------------ */
+.error-banner {
+  background: #450a0a;
+  color: #fca5a5;
+  border: 1px solid #7f1d1d;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 0.88rem;
+}
+
+/* Capture log ------------------------------------------------------------- */
+.capture-log {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-header h2 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.capture-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.capture-table th {
+  text-align: left;
+  padding: 0.45rem 1rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.capture-table td {
+  padding: 0.45rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.capture-table tr:last-child td { border-bottom: none; }
+
+.weight-cell  { font-family: monospace; font-weight: 600; }
+.muted        { color: var(--muted); }
+.cell-stable  { color: var(--stable); font-size: 0.82rem; }
+.cell-dynamic { color: var(--dynamic); font-size: 0.82rem; }
+
+/* Raw debug --------------------------------------------------------------- */
+.raw-debug {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.section-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--muted);
+  padding: 0.65rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-toggle:hover { color: var(--text); }
+.toggle-arrow { font-size: 0.65rem; }
+
+.badge {
+  margin-left: auto;
+  background: var(--border);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.raw-output {
+  max-height: 260px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+  padding: 0.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.76rem;
+}
+
+.raw-line {
+  color: var(--muted);
+  line-height: 1.65;
+  white-space: pre;
+}
